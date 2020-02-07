@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # This script is displaying minutes from 1-59 and the hour
 
-i=1
-while [[ $i -le 12 ]]
+i=0
+while [ $i -le 12 ]
 do
     echo "Hour: $i"
     j=1
-    while [[ $j -lt 60 ]]
+    while [ $j -lt 60 ]
     do
 	echo "$j"
 	j=$((j + 1))
