@@ -2,30 +2,14 @@
 # This script is displaying minutes from 1-59 and the hour
 
 i=1
-j=0
-while [[ $i -le 60 ]]
+while [[ $i -le 12 ]]
 do
-    if [ $j -eq 0 ] && [ $i -eq 1 ]
-    then
-	echo "Hour: 0"
-    fi
-
-    echo $i
-
-    if [ $i -eq 59 ]
-    then
+    echo "Hour: $i"
+    j=1
+    while [[ $j -lt 60 ]]
+    do
+	echo "$j"
 	j=$((j + 1))
-	echo "Hour: $j"
-	if [ $j -eq 12 ]
-	then
-	    break
-	fi
-    fi
-
+    done
     i=$((i + 1))
-
-    if [ $i -eq 60 ]
-    then
-	i=1
-    fi
 done
