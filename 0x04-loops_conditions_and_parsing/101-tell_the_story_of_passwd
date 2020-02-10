@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Print text based on etc/passwd
+
+while IFS=":" read -r user passwd ssn gang yellow_pages address vehicle
+do
+    echo "The user $user is part of the $gang gang, lives in $address and rides $vehicle. $ssn's place is protected by the passcode $passwd, more info about the user here: $yellow_pages"
+done < "/etc/passwd"
