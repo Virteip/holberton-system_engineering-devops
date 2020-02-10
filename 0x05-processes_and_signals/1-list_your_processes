@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Print list of processes
 
-ps -aux
+ps -auxf
