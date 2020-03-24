@@ -1,5 +1,5 @@
 #Grant a program's dying wish
 exec { '2-execute_a_command':
-  path    =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', ],
+  path    =>  '/usr/bin/',
   command =>  'pkill -f killmenow',
-  returns =>  [0,1,]}
+  returns =>  [0,1]}
