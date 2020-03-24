@@ -1,3 +1,4 @@
+#append lines to config file
 $str ="
      ForwardAgent yes
      IdentityFile ~/.ssh/holberton
