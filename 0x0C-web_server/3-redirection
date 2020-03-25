@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Sets up nginx web server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+sudo sed -i "/^\tlocation \// i\ \tlocation /redirect_me {\n\t\treturn 301 https://virteip.tech;\n\t}" /etc/nginx/sites-available/default
+service nginx start
