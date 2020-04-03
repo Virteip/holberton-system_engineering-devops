@@ -2,7 +2,5 @@
 # Set up second server exactly as the first one
 sudo apt-get -y update
 sudo apt-get -y install nginx
-echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
-sudo sed -i "/^\tlocation \// i\ \tlocation /redirect_me {\n\t\treturn 301 https://virteip.tech;\n\t}" /etc/nginx/sites-enabled/default
-sudo sed -i "56i \\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-enabled/default
+sudo sed -i "54i \\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-enabled/default
 service nginx start
