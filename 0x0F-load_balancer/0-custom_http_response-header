@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Set up second server exactly as the first one
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+sudo sed -i "/^\tlocation \// i\ \tlocation /redirect_me {\n\t\treturn 301 https://virteip.tech;\n\t}" /etc/nginx/sites-enabled/default
+sudo mkdir /var/www/html/Error404
+echo "Ceci n'est pas une page" > /var/www/html/Error404/404_generic.html
+sudo sed -i "46i \\\terror_page 404 \/404_generic.html;\n\tlocation = \/404_generic.html {\n\t\troot \/var\/www\/html/Error404;\n\t\tinternal;\n\t}" /etc/nginx/sites-enabled/default
+sudo sed -i "55i \\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-enabled/default
+service nginx start
