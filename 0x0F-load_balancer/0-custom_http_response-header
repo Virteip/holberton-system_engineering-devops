@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Set up second server exactly as the first one
 sudo apt-get -y install nginx
-sudo sed -i "40i \ \t add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+sudo sed -i "40i \ \t add_header X-Served-By $hostname;" /etc/nginx/sites-enabled/default
 sudo service nginx start
