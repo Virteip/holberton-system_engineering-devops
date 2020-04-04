@@ -14,8 +14,8 @@ frontend main
 echo "
 backend web-server
 	balance roundrobin
-	server 1233-web-01 35.237.196.81:80 check
-	server 1233-web-02   3.93.170.20:80 check
+	server gc-1196-web-01-1584940402 35.237.196.81:80 check
+	server 1196-web-02   3.93.170.20:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 
