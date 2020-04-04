@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Sed replace 8080 for 80
+cat default | sed -i 's/8080/80/'
+sudo service nginx restart
