@@ -4,21 +4,21 @@
 sudo apt upgrade
 sudo apt-get install haproxy -y
 
-echo "
+sudo echo "
 frontend main
     bind *:80
     mode http
-    default_backend web-server
+    default_backend back-route
 " >> /etc/haproxy/haproxy.cfg
 
-echo "
-backend web-server
+sudo echo "
+backend back-route
 	balance roundrobin
 	server 1196-web-01 35.237.196.81:80 check
 	server 1196-web-02   3.93.170.20:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 
-echo "ENABLED=1" >> /etc/default/haproxy
+sudo echo "ENABLED=1" >> /etc/default/haproxy
 
 sudo service haproxy restart
