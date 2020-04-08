@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#Display records info on domain
+
+
+
+record_type () {
+    if  [ "$#" -eq 2 ]
+    then
+	record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $4}')
+	echo "$record"
+    fi
+}
+
+ip_address(){
+    if  [ "$#" -eq 2 ]
+    then
+	ip=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $5}')
+	echo "$ip"
+    fi
+}
+
+if [ "$#" -eq 1 ]
+then
+    echo "The subdomain www is a $(record_type "$1" 'www') record and points to $(ip_address "$1" 'www')"
+    echo "The subdomain lb-01 is a $(record_type "$1" 'lb-01') record and points to $(ip_address "$1" 'lb-01')"
+    echo "The subdomain web-01 is a $(record_type "$1" 'web-01') record and points to $(ip_address "$1" 'web-01')"
+    echo "The subdomain web-02 is a $(record_type "$1" 'web-02') record and points to $(ip_address "$1" 'web-02')"
+fi
+
+if  [ "$#" -eq 2 ]
+then
+   echo "The subdomain $2 is a $(record_type "$1" "$2") record and points to $(ip_address "$1" "$2")"
+fi
