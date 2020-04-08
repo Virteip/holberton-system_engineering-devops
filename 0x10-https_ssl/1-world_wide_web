@@ -2,21 +2,14 @@
 #Display records info on domain
 
 
-
 record_type () {
-    if  [ "$#" -eq 2 ]
-    then
-	record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $4}')
-	echo "$record"
-    fi
+    record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $4}')
+    echo "$record"
 }
 
 ip_address(){
-    if  [ "$#" -eq 2 ]
-    then
-	ip=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $5}')
-	echo "$ip"
-    fi
+    ip=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk '{printf $5}')
+    echo "$ip"
 }
 
 if [ "$#" -eq 1 ]
