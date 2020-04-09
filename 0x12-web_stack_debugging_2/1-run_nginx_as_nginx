@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Run process as another user
+
+sudo chmod a+rwx /etc/nginx/nginx.conf
+sudo service apache2 stop
+sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
+su nginx -c 'service nginx restart'
