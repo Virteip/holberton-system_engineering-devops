@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# assign shell to user and print commands as it
+
+chsh -s /bin/bash "$1"
+su "$1" -c 'whoami'
