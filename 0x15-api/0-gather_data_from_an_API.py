@@ -30,4 +30,4 @@ if __name__ == "__main__":
           format(employee_name, done_tasks, total_tasks))
 
     for task in task_list:
-        print('\t' + task)
+        print('\t ' + task)
