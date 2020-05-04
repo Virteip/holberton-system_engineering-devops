@@ -17,7 +17,7 @@ if __name__ == "__main__":
     task_list = []
     employee_name = users_json[0]['name']
 
-    with open('USER_ID.csv', 'w') as f:
+    with open(str(argv[1])+'.csv', 'w') as f:
         write = csv.writer(f, quoting=csv.QUOTE_ALL)
         for data in todos_json:
             write.writerow([str(argv[1]), str(employee_name),
