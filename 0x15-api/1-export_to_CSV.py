@@ -18,7 +18,7 @@ if __name__ == "__main__":
     employee_name = users_json[0]['name']
 
     with open('USER_ID.csv', 'w') as f:
-        write = csv.writer(f)
+        write = csv.writer(f, quoting=csv.QUOTE_ALL)
         for data in todos_json:
-            write.writerow([argv[1], employee_name,
-                           data['completed'], data['title']])
+            write.writerow([str(argv[1]), str(employee_name),
+                            data['completed'], data['title']])
