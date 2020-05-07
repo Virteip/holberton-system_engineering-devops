@@ -18,7 +18,7 @@ def recurse(subreddit, hot_list=[], x=0):
 
         if title is not None:
             hot_list.append(title)
-            recurse(argv[1], hot_list, x+1)
+            recurse(subreddit, hot_list, x+1)
         return hot_list
     except:
         return None
