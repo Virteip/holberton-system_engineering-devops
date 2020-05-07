@@ -18,4 +18,4 @@ def top_ten(subreddit):
             print(data_j.get('data').get('children')[x].get('data')['title'])
 
     except:
-        return None
+        print(None)
