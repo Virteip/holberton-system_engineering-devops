@@ -16,10 +16,12 @@ def recurse(subreddit, hot_list=[], x=0):
 
         title = data_j.get('data').get('children')[x].get('data')['title']
 
+        if x == 0 and title is None:
+            return None
+
         if title is not None:
             hot_list.append(title)
-            return recurse(subreddit, hot_list, x+1)
-#        return hot_list
+            return recurse(subreddit, hot_list, x=x + 1)
     except:
         if len(hot_list) > 0:
             return hot_list
